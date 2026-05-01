@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serene Coffe | Tempat Nyaman untuk Santai & Berbagi Cerita</title>
+<meta name="description" content="Serene Coffe — tempat nyaman untuk santai dan ngobrol bersama teman. Kopi spesial, snack lezat, dan suasana hangat menanti kamu setiap hari.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#2E1B12; --primary-light:#5A3A2C; --accent:#D4AF37; --accent-soft:#E6D5B8;
+  --cream:#FDF8F0; --bg:#FAF6F0; --white:#FFFFFF; --text:#2E1B12;
+  --text-light:#7B5C48; --shadow:0 8px 28px rgba(0,0,0,0.06); --shadow-lg:0 20px 35px -12px rgba(0,0,0,0.12);
+  --radius-xl:28px; --radius:20px; --radius-sm:14px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-0.02em}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block;border-radius:var(--radius);}
+
+/* modern glassmorph nav */
+.nav{position:fixed;top:0;left:0;width:100%;background:rgba(250,246,240,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:1000;border-bottom:1px solid rgba(212,175,55,0.2);transition:all 0.25s ease}
+.nav.scrolled{background:rgba(250,246,240,0.96);box-shadow:var(--shadow);border-bottom-color:rgba(212,175,55,0.3);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--primary);letter-spacing:-0.5px;background:linear-gradient(135deg,#2E1B12 0%,#5A3A2C 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.nav-logo span{color:var(--accent);background:none;-webkit-background-clip:unset;background-clip:unset;color:#D4AF37}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--text-light);transition:all 0.2s;position:relative;letter-spacing:0.3px}
+.nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2.5px;background:var(--accent);border-radius:4px;transition:width 0.25s}
+.nav-links a:hover{color:var(--primary)}.nav-links a:hover::after{width:100%}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--primary);margin:5px 0;transition:.3s;border-radius:2px}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(250,246,240,0.96);backdrop-filter:blur(20px);flex-direction:column;padding:24px 28px;gap:20px;border-bottom:1px solid rgba(212,175,55,0.2);box-shadow:0 20px 25px -12px rgba(0,0,0,0.08)}
+  .nav-links.open{display:flex}.nav-toggle{display:block}
+}
+
+/* hero section bold & warm */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 20px 90px;position:relative;background:radial-gradient(ellipse at 80% 30%, rgba(212,175,55,0.08) 0%, rgba(250,246,240,0) 60%), linear-gradient(145deg, #FEF7E8 0%, #F9EFE0 100%);overflow:hidden}
+.hero::before{content:'☕';position:absolute;font-size:22vw;opacity:0.05;bottom:5%;left:-5%;pointer-events:none;transform:rotate(-10deg)}
+.hero::after{content:'';position:absolute;top:-20%;right:-10%;width:450px;height:450px;background:radial-gradient(circle, rgba(212,175,55,0.18) 0%,transparent 70%);border-radius:50%}
+.hero-badge{display:inline-block;background:rgba(46,27,18,0.08);backdrop-filter:blur(4px);color:var(--primary-light);font-size:0.7rem;font-weight:700;padding:8px 20px;border-radius:60px;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;border:1px solid rgba(212,175,55,0.3)}
+.hero h1{font-size:clamp(3rem,8vw,5.2rem);color:var(--primary);line-height:1.05;margin-bottom:20px}
+.hero h1 span{color:var(--accent);text-shadow:0 2px 8px rgba(212,175,55,0.2)}
+.hero p{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--text-light);max-width:520px;margin:0 auto 36px;font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:60px;font-size:0.9rem;font-weight:600;transition:all 0.3s ease;cursor:pointer;border:none}
+.btn-primary{background:var(--primary);color:var(--white);box-shadow:0 8px 18px rgba(46,27,18,0.2)}
+.btn-primary:hover{background:var(--primary-light);transform:translateY(-3px);box-shadow:0 14px 28px rgba(46,27,18,0.25)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--accent);backdrop-filter:blur(2px)}
+.btn-outline:hover{background:var(--accent);color:var(--white);transform:translateY(-3px);border-color:var(--accent)}
+
+/* section umum */
+.section{padding:90px 24px}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header .label{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);background:rgba(212,175,55,0.12);padding:4px 18px;border-radius:40px;margin-bottom:14px}
+.section-header h2{font-size:clamp(1.8rem,4vw,2.8rem);color:var(--primary);margin-bottom:12px}
+.section-header p{color:var(--text-light);max-width:530px;margin:0 auto;font-size:1rem}
+.container{max-width:1200px;margin:0 auto}
+
+/* gallery premium */
+.gallery-section{background:var(--cream)}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1;cursor:pointer;box-shadow:var(--shadow);transition:all 0.35s}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.55s cubic-bezier(0.2,0.9,0.4,1.1)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(46,27,18,0.5) 0%, transparent 55%);opacity:0;transition:opacity 0.3s}
+.gallery-item:hover img{transform:scale(1.07)}
+.gallery-item:hover::after{opacity:1}
+.gallery-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gallery-item:nth-child(2){grid-column:span 1}
+@media(max-width:760px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .gallery-item:first-child{grid-column:span 2;grid-row:span 1;aspect-ratio:16/10}
+}
+
+/* menu modern card */
+.menu-section{background:var(--bg)}
+.menu-tabs{display:flex;justify-content:center;gap:12px;margin-bottom:44px;flex-wrap:wrap}
+.menu-tab{padding:12px 28px;border-radius:80px;border:1.5px solid rgba(212,175,55,0.5);background:var(--white);color:var(--text-light);font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;backdrop-filter:blur(4px)}
+.menu-tab.active,.menu-tab:hover{background:var(--primary);color:var(--white);border-color:var(--primary);box-shadow:0 6px 14px rgba(46,27,18,0.12)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px}
+.menu-card{background:var(--white);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:center;gap:18px;box-shadow:0 5px 18px rgba(0,0,0,0.03), 0 0 0 1px rgba(212,175,55,0.1);transition:all 0.3s ease;border:1px solid rgba(212,175,55,0.12)}
+.menu-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(212,175,55,0.4)}
+.menu-icon{width:58px;height:58px;border-radius:30px;background:linear-gradient(125deg, #FDF3E0, #F9E9D2);display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex-shrink:0;color:var(--primary-light)}
+.menu-info h3{font-size:1.1rem;color:var(--primary);margin-bottom:5px;font-family:'Inter',sans-serif;font-weight:700}
+.menu-info p{font-size:0.75rem;color:var(--text-light);letter-spacing:0.2px}
+.menu-price{margin-left:auto;font-weight:800;color:var(--accent);font-size:1.1rem;background:rgba(212,175,55,0.12);padding:4px 12px;border-radius:40px}
+.menu-card.hidden{display:none}
+
+/* info cards with icons */
+.info-section{background:linear-gradient(110deg, #FBF5EA 0%, #FCF6ED 100%)}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px}
+.info-card{background:var(--white);border-radius:var(--radius-xl);padding:34px 22px;text-align:center;box-shadow:var(--shadow);transition:all 0.3s;border:1px solid rgba(212,175,55,0.2)}
+.info-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.info-card .icon{width:70px;height:70px;border-radius:60px;background:linear-gradient(145deg, #2E1B12, #5A3A2C);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;color:var(--accent);box-shadow:0 12px 20px -10px rgba(0,0,0,0.2)}
+.info-card h3{font-size:1.2rem;margin-bottom:12px;color:var(--primary)}
+.info-card p{font-size:0.9rem;color:var(--text-light);line-height:1.6}
+.info-card a{font-weight:600;color:var(--accent);transition:0.2s}
+.info-card a:hover{color:var(--primary-light);text-decoration:underline}
+
+/* map clean */
+.map-section{background:var(--bg)}
+.map-wrapper{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);border:4px solid var(--white);transition:0.3s}
+.map-wrapper iframe{width:100%;height:380px;border:0;display:block}
+
+/* cta dramatic */
+.cta-section{background:linear-gradient(115deg, #2E1B12 0%, #422E23 100%);text-align:center;padding:90px 24px;position:relative;overflow:hidden}
+.cta-section::before{content:'✦';font-size:15rem;position:absolute;opacity:0.05;top:50%;left:50%;transform:translate(-50%,-50%);letter-spacing:20px}
+.cta-section h2{color:var(--white);font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:18px;font-weight:700}
+.cta-section p{color:rgba(255,250,235,0.85);margin-bottom:38px;font-size:1rem;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-white{background:var(--white);color:var(--primary);box-shadow:0 10px 20px rgba(0,0,0,0.2)}
+.btn-white:hover{background:var(--accent-soft);transform:translateY(-3px);color:#2E1B12}
+.btn-wa{background:#25D366;color:var(--white);box-shadow:0 8px 18px rgba(37,211,102,0.4)}
+.btn-wa:hover{background:#1da955;transform:translateY(-3px);box-shadow:0 12px 25px rgba(37,211,102,0.5)}
+
+/* footer */
+.footer{background:var(--primary);color:rgba(255,245,230,0.7);text-align:center;padding:34px 20px;font-size:0.85rem;border-top:1px solid rgba(212,175,55,0.2)}
+.footer span{color:var(--accent);font-weight:600}
+
+/* sticky wa modern */
+.sticky-wa{position:fixed;bottom:28px;right:28px;z-index:999;width:60px;height:60px;border-radius:40px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 10px 25px rgba(37,211,102,0.4);transition:all 0.25s;cursor:pointer;border:none;animation:gentlePulse 2.4s infinite}
+.sticky-wa:hover{transform:scale(1.08);background:#20b859;box-shadow:0 15px 30px rgba(37,211,102,0.5)}
+@keyframes gentlePulse{0%{box-shadow:0 8px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 0 0 8px rgba(37,211,102,0.2),0 8px 24px rgba(37,211,102,0.5)}100%{box-shadow:0 8px 20px rgba(37,211,102,0.4)}}
+
+/* Scroll animations & fade-up lebih halus */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.75s cubic-bezier(0.2,0.9,0.3,1.1),transform 0.75s cubic-bezier(0.2,0.9,0.3,1.1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--cream)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV v2 -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Serene<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
+      <li><a href="#menu" onclick="closeNav()">Menu</a></li>
+      <li><a href="#info" onclick="closeNav()">Info</a></li>
+      <li><a href="#lokasi" onclick="closeNav()">Lokasi</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO Elegant -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="fade-up">
+      <span class="hero-badge"><i class="fas fa-mug-saucer" style="margin-right:6px;"></i> Proudly Indonesian Coffee</span>
+      <h1>Serene <span>Coffe</span></h1>
+      <p>Where every sip feels like a warm embrace — tempat nyaman untuk santai & bercerita.</p>
+      <div class="hero-btns">
+        <a href="https://maps.google.com" target="_blank" class="btn btn-primary"><i class="fas fa-map-marker-alt"></i> Temukan Kami</a>
+        <a href="https://wa.me/6281234567890?text=Halo%20Serene%20Coffe!" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Chat Reservasi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY with new composition -->
+<section class="section gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label"><i class="fas fa-camera"></i> Visual Story</span>
+      <h2>Suasana Serene Coffe</h2>
+      <p>Ruang hangat dengan sentuhan kayu, kopi, dan tawa</p>
+    </div>
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=800&q=80" alt="cozy interior" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="latte art" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&q=80" alt="manual brew" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="coffee time" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="warm lighting" loading="lazy"></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&q=80" alt="dessert pairing" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU SECTION premium -->
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label"><i class="fas fa-utensils"></i> Serene Signature</span>
+      <h2>Pilihan Menu Favorit</h2>
+      <p>Racikan terbaik dari biji pilihan hingga camilan homemade</p>
+    </div>
+    <div class="menu-tabs fade-up">
+      <button class="menu-tab active" data-filter="all">Semua Menu</button>
+      <button class="menu-tab" data-filter="kopi"><i class="fas fa-coffee"></i> Kopi</button>
+      <button class="menu-tab" data-filter="nonkopi"><i class="fas fa-leaf"></i> Non Kopi</button>
+      <button class="menu-tab" data-filter="snack"><i class="fas fa-bread-slice"></i> Snack</button>
+    </div>
+    <div class="menu-grid fade-up">
+      <div class="menu-card" data-cat="kopi"><div class="menu-icon">☕</div><div class="menu-info"><h3>Espresso Romantico</h3><p>Single origin, bold & velvety</p></div><div class="menu-price">18K</div></div>
+      <div class="menu-card" data-cat="kopi"><div class="menu-icon">☕</div><div class="menu-info"><h3>Caffè Latte</h3><p>Espresso dengan steamed milk creamy</p></div><div class="menu-price">25K</div></div>
+      <div class="menu-card" data-cat="kopi"><div class="menu-icon">☕</div><div class="menu-info"><h3>Cappuccino Classico</h3><p>Foam tebal & aroma kayu manis</p></div><div class="menu-price">25K</div></div>
+      <div class="menu-card" data-cat="kopi"><div class="menu-icon">☕</div><div class="menu-info"><h3>Caramel Macchiato</h3><p>Sentuhan karamel & susu segar</p></div><div class="menu-price">28K</div></div>
+      <div class="menu-card" data-cat="nonkopi"><div class="menu-icon">🍵</div><div class="menu-info"><h3>Matcha Serene</h3><p>Grade A matcha latte</p></div><div class="menu-price">27K</div></div>
+      <div class="menu-card" data-cat="nonkopi"><div class="menu-icon">🍫</div><div class="menu-info"><h3>Belgian Chocolate</h3><p>Dark cocoa, rich & comforting</p></div><div class="menu-price">24K</div></div>
+      <div class="menu-card" data-cat="snack"><div class="menu-icon">🥐</div><div class="menu-info"><h3>Croissant Butter</h3><p>Renyah berlapis madu</p></div><div class="menu-price">19K</div></div>
+      <div class="menu-card" data-cat="snack"><div class="menu-icon">🍟</div><div class="menu-info"><h3>Truffle Fries</h3><p>Kentang goreng dengan saus truffle</p></div><div class="menu-price">22K</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO with fresh interaction -->
+<section class="section info-section" id="info">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label"><i class="fas fa-clock"></i> Stay in Touch</span>
+      <h2>Jam Buka & Akses</h2>
+      <p>Setiap hari kami buka untuk cerita dan kopi terbaik</p>
+    </div>
+    <div class="info-grid fade-up">
+      <div class="info-card"><div class="icon"><i class="far fa-calendar-alt"></i></div><h3>Jam Operasional</h3><p>Senin – Kamis: 11:30 – 23:30<br>Jumat: 13:30 – 23:30<br>Sabtu – Minggu: 10:30 – 00:00</p></div>
+      <div class="info-card"><div class="icon"><i class="fas fa-location-dot"></i></div><h3>Alamat <br>Serene Coffe</h3><p>Jln. Jendral Sudirman KM 87, Jakarta Selatan<br><a href="https://maps.google.com" target="_blank" style="color:var(--accent)">📌 Buka di Google Maps →</a></p></div>
+      <div class="info-card"><div class="icon"><i class="fas fa-headset"></i></div><h3>Hubungi Kami</h3><p>WhatsApp: <strong>0812-3456-7890</strong><br>Instagram: @serenecoffe<br><a href="https://wa.me/6281234567890" target="_blank" style="color:#25D366;"><i class="fab fa-whatsapp"></i> Chat langsung →</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP modern -->
+<section class="section map-section" id="lokasi">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label"><i class="fas fa-map"></i> Arahkan Maps</span>
+      <h2>Temukan Kami di Pusat Kota</h2>
+      <p>Lingkungan tenang, mudah dijangkau kendaraan umum</p>
+    </div>
+    <div class="map-wrapper fade-up">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonas!5e0!3m2!1sen!2sid!4v1680000000000!5m2!1sen!2sid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Serene Coffe"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA elegant -->
+<section class="cta-section">
+  <div class="container fade-up">
+    <h2>Ngopi bareng teman?<br>Serene sudah siap! ☕✨</h2>
+    <p>Suasana homey, kopi nikmat, dan pelayanan ramah – buat harimu lebih tenang.</p>
+    <div class="cta-btns">
+      <a href="https://maps.google.com" target="_blank" class="btn btn-white"><i class="fas fa-directions"></i> Buka Maps</a>
+      <a href="https://wa.me/6281234567890?text=Halo%20Serene%20Coffe!%20Saya%20mau%20reservasi" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER refined -->
+<footer class="footer">
+  <p>&copy; 2025 <span>Serene Coffe</span> — Tempat Nyaman untuk Santai & Berbagi Cerita.</p>
+</footer>
+
+<a href="https://wa.me/6281234567890?text=Halo%20Serene%20Coffe!%20Saya%20tertarik" target="_blank" class="sticky-wa" aria-label="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>navLinks.classList.toggle('open'));
+function closeNav(){navLinks.classList.remove('open')}
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40)});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+document.querySelectorAll('.menu-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const f=tab.dataset.filter;document.querySelectorAll('.menu-card').forEach(card=>{card.classList.toggle('hidden',f!=='all'&&card.dataset.cat!==f);});});});
+</script>
+</body>
+</html>
